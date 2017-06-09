@@ -13,10 +13,6 @@ class EncryptionTest(unittest.TestCase):
         with open(fixtures) as artifacts:
             self.test_artifacts = json.load(artifacts)
         os.environ['CIS_ARN_MASTER_KEY'] = self.test_artifacts['dummy_kms_arn']
-        os.environ['AWS_DEFAULT_REGION'] = self.test_artifacts['dummy_aws_region']
-        os.environ['CIS_DYNAMODB_TABLE'] = self.test_artifacts['dummy_dynamodb_table']
-        os.environ['CIS_KINESIS_STREAM_ARN'] = self.test_artifacts['dummy_kinesis_arn']
-        os.environ['CIS_LAMBDA_VALIDATOR_ARN'] = self.test_artifacts['dummy_lambda_validator_arn']
 
     @patch('cis.encryption.kms')
     @patch('cis.encryption.os')
